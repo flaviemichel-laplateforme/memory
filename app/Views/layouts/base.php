@@ -14,7 +14,7 @@
   <meta charset="utf-8">
 
   <!-- Titre de la page (sécurisé avec htmlspecialchars, valeur par défaut si non défini) -->
-  <title><?= isset($title) ? htmlspecialchars($title, ENT_QUOTES, 'UTF-8') : 'Mini MVC' ?></title>
+  <title><?= isset($title) ? htmlspecialchars($title, ENT_QUOTES, 'UTF-8') : 'Memory' ?></title>
 
   <!-- Bonne pratique : rendre le site responsive -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +29,8 @@
     <a href="/">Accueil</a> |
     <a href="/articles">Articles</a> |
     <a href="/about">À propos</a>
-
+    <a href="/game">Game</a>
+    <a href="/game/plateau">Game Plateau</a>
   </nav>
 
   <!-- Contenu principal injecté depuis BaseController -->
