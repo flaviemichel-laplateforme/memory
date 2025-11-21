@@ -28,8 +28,8 @@
   <nav>
     <a href="/">Accueil</a> |
     <a href="/articles">Articles</a> |
-    <a href="/about">À propos</a>
-    <a href="/game">Game</a>
+    <a href="/about">À propos</a> |
+    <a href="/game">Game</a> |
     <a href="/game/plateau">Game Plateau</a>
   </nav>
 

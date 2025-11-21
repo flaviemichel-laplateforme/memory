@@ -25,7 +25,7 @@ $router->get('/', 'App\\Controllers\\HomeController@index');
 //Routes pour GameController
 $router->get('/game', 'App\\Controllers\\GameController@index');
 $router->get('/game/plateau', 'App\\Controllers\\GameController@plateau');
-
+$router->get('/game/bravo', 'App\\Controllers\\GameController@bravo');
 
 $router->get('/about', 'App\\Controllers\\HomeController@about');
 

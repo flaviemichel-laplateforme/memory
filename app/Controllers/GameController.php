@@ -27,6 +27,13 @@ class GameController extends BaseController
             shuffle($deck);
             $_SESSION['jeu'] = $deck;
 
+            // --- 🆕 AJOUTS POUR LE SCORE ---
+            // On lance le chrono (heure actuelle en secondes)
+            $_SESSION['debut_partie'] = time();
+
+            // On retient la difficulté (nombre de paires)
+            $_SESSION['nb_paires'] = $nbPaires;
+
             header("Location: /game/plateau");
             exit();
         }
