@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use Core\BaseController;
 use App\Models\Card;
+use Core\Database;
 
 class GameController extends BaseController
 {
@@ -113,5 +114,42 @@ class GameController extends BaseController
 
         header("Location: /game/plateau");
         exit();
+    }
+
+    public function bravo()
+    {
+        if (!isset($_SESSION['jeu']) || !isset($_SESSION['debut_partie'])) {
+            header("Location: /game");
+            exit();
+        }
+
+
+        //Calcul du temps (Durée = Maintenant - Début)
+        $fin = time();
+        $debut = $_SESSION['debut_partie'];
+        $dureeEnSecondes = $fin - $debut;
+
+        //On convertit les secondes en format "00.02.15" pour SQL (TIME) gmdate
+
+        $tempsFormatSQL = gmdate("H:i:s", $dureeEnSecondes);
+
+        $nbPaires = $_SESSION['nb_paires'];
+
+        $idUtilisateur = $_SESSION['user']['id'] ?? 1;
+
+        $db = new \Core\Database();
+
+        $sql = "INSERT INTO scores (id_utilisateur, temps, nombre_paires, date_creation) VALUES (?, ?, ?, NOW())";
+
+        $db->query($sql, [$idUtilisateur, $tempsFormatSQL, $nbPaires]);
+
+        unset($_SESSION['jeu']);
+        unset($_SESSION['debut_partie']);
+        unset($_SESSION['nb_paires']);
+
+        $this->render('game/bravo', [
+            'temps' => $tempsFormatSQL,
+            'paires' => $nbPaires
+        ]);
     }
 }
