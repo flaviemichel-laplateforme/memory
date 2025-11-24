@@ -137,11 +137,14 @@ class GameController extends BaseController
 
         $idUtilisateur = $_SESSION['user']['id'] ?? 1;
 
-        $db = new \Core\Database();
+        $db = Database::getPdo();
 
         $sql = "INSERT INTO scores (id_utilisateur, temps, nombre_paires, date_creation) VALUES (?, ?, ?, NOW())";
 
-        $db->query($sql, [$idUtilisateur, $tempsFormatSQL, $nbPaires]);
+        $stmt = $db->prepare($sql);
+
+        $stmt->execute([$idUtilisateur, $tempsFormatSQL, $nbPaires]);
+
 
         unset($_SESSION['jeu']);
         unset($_SESSION['debut_partie']);
