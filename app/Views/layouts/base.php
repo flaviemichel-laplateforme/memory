@@ -31,7 +31,11 @@
     <a href="/about">À propos</a> |
     <a href="/game">Game</a> |
     <a href="/game/plateau">Game Plateau</a> |
-    <a href="/game/classement">Classement</a>
+    <a href="/game/classement">Classement</a> |
+    <a href="/auth/register">S'inscrire</a>
+    <a href="/auth/login">Se connecter</a>
+
+
   </nav>
 
   <!-- Contenu principal injecté depuis BaseController -->

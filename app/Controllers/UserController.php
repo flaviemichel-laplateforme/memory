@@ -35,7 +35,7 @@ class UserController extends BaseController
             exit;
         }
 
-        $this->render('auth/registrer');
+        $this->render('auth/register');
     }
 
     /**

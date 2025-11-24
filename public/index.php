@@ -29,6 +29,13 @@ $router->get('/', 'App\\Controllers\\HomeController@index');
 $router->get('/game', 'App\\Controllers\\GameController@index');
 $router->post('/game', 'App\\Controllers\\GameController@index');
 
+$router->get('/auth/register', 'App\\Controllers\\UserController@register');
+$router->post('/auth/register', 'App\\Controllers\\UserController@register');
+
+$router->get('/auth/login', 'App\\Controllers\\UserController@login');
+$router->post('/auth/login', 'App\\Controllers\\UserController@login');
+
+
 $router->get('/game/plateau', 'App\\Controllers\\GameController@plateau');
 $router->get('/game/bravo', 'App\\Controllers\\GameController@bravo');
 // $router->get('/game/play', 'App\\Controllers\\GameController@play');
