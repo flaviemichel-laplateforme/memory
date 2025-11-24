@@ -2,11 +2,9 @@
     <h1>Memory</h1>
     <p class="#">Prêt à tester votre mémoire ?</p>
 
-    <form action="" method="POST">
+    <form action="/game" method="POST">
 
-        <?php if (csrf_token('csrf_token')): ?>
-            <input type="hidden" name="csrf_token" value="<?= csrf_token() ?>">
-        <?php endif; ?>
+        <input type="hidden" name="csrf_token" value="<?= csrf_token() ?>">
 
         <div class="form-group">
             <label for="nb_paires">Niveau de difficulté :</label>
@@ -21,11 +19,6 @@
         <button type="submit" class="btn-play">🎮 Lancer la partie</button>
     </form>
 
-    <a href="/classement" class="btn-classement">🏆 Voir les meilleurs scores</a>
+    <a href="/game/classement" class="btn-classement">🏆 Voir les meilleurs scores</a>
 
-
-
-
-</div>
-</form>
 </div>
