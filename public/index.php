@@ -40,10 +40,9 @@ $router->post('/auth/register', 'App\\Controllers\\UserController@register');
 $router->get('/auth/login', 'App\\Controllers\\UserController@login');
 $router->post('/auth/login', 'App\\Controllers\\UserController@login');
 
-$router->get('/logout', 'App\Controllers\UserController@logout');
-$router->post('/logout', 'App\Controllers\UserController@logout');
+$router->get('/auth/logout', 'App\\Controllers\\UserController@logout');
 
-$router->get('/auth/profile', 'App\Controllers\UserController@profile');
+$router->get('/auth/profile', 'App\\Controllers\\UserController@profile');
 $router->post('/auth/profile', 'App\Controllers\UserController@profile');
 
 

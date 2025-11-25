@@ -121,6 +121,10 @@ class UserController extends BaseController
         // Redirection vers la page d'accueil
         header("Location: /");
         exit();
+
+        // Redirection vers la page d'accueil
+        header("Location: /");
+        exit();
     }
 
     public function profile()
