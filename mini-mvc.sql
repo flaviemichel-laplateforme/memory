@@ -26,7 +26,7 @@ USE `memory` ;
 CREATE TABLE IF NOT EXISTS `memory`.`utilisateurs` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `login` VARCHAR(50) NOT NULL,
-  `mot_de_passe` VARCHAR(255) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
   `email` VARCHAR(100) NOT NULL,
   `nom` VARCHAR(50) NULL DEFAULT NULL,
   `prenom` VARCHAR(50) NULL DEFAULT NULL,

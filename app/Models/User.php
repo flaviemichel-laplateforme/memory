@@ -14,8 +14,8 @@ class User
     {
         $pdo = Database::getPdo();
 
-        $sql = "INSERT INTO utilisateurs(login, mot_de_passe, email, nom, prenom, date_creation)
-            VALUES (?, ?, ?, ?, ?? NOW())";
+        $sql = "INSERT INTO utilisateurs(login, password, email, nom, prenom, date_creation)
+            VALUES (?, ?, ?, ?, ?, NOW())";
 
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$login, $password, $email, $nom, $prenom]);
