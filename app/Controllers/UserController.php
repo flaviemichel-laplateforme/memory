@@ -61,7 +61,7 @@ class UserController extends BaseController
 
             $userModel->create($login, $hashedPassword, $email, $nom, $prenom);
 
-            set_flash('sucess', 'Inscription réussie ! Vous pouvez maintenant vous connecter.');
+            set_flash('success', 'Inscription réussie ! Vous pouvez maintenant vous connecter.');
             header("Location: /auth/login");
             exit;
         }
@@ -102,13 +102,23 @@ class UserController extends BaseController
         $this->render('auth/login');
     }
 
+
     /**
      * Gère la déconnexion
      */
     public function logout()
     {
+        // Vider toutes les variables de session
+        $_SESSION = [];
+
+        // Détruire complètement la session
         session_destroy();
 
+        // Redémarrer une nouvelle session pour le message flash
+        session_start();
+        set_flash('success', 'Vous êtes déconnecté avec succès');
+
+        // Redirection vers la page d'accueil
         header("Location: /");
         exit();
     }
@@ -141,7 +151,7 @@ class UserController extends BaseController
             $_SESSION['user']['nom'] = $nom;
             $_SESSION['user']['prenom'] = $prenom;
 
-            $message = "Profil mis à jour avec succès !";
+            set_flash('success', 'Profil mis à jour avec succès !');
         }
 
         // 3. Récupération des données fraîches de l'utilisateur
@@ -151,6 +161,7 @@ class UserController extends BaseController
         // 4. Récupération stats
         $historique = $scoreModel->getUserHistory($userId);
         $bestScore = $scoreModel->getUserBest($userId);
+
 
         // 5. Envoi à la vue (on envoie $currentUser pour pré-remplir les champs)
         $this->render('auth/profile', [
