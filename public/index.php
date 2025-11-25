@@ -37,8 +37,8 @@ $router->post('/auth/login', 'App\\Controllers\\UserController@login');
 
 
 $router->get('/game/plateau', 'App\\Controllers\\GameController@plateau');
+$router->get('/game/play', 'App\\Controllers\\GameController@play');
 $router->get('/game/bravo', 'App\\Controllers\\GameController@bravo');
-// $router->get('/game/play', 'App\\Controllers\\GameController@play');
 $router->get('/game/classement', 'App\\Controllers\\GameController@classement');
 
 
