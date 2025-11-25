@@ -27,12 +27,10 @@
   <!-- Menu de navigation global -->
   <nav>
     <a href="/">Accueil</a> |
-    <a href="/articles">Articles</a> |
-    <a href="/about">À propos</a> |
     <a href="/game">Game</a> |
     <a href="/game/plateau">Game Plateau</a> |
     <a href="/game/classement">Classement</a> |
-    <a href="/auth/register">S'inscrire</a>
+    <a href="/auth/register">S'inscrire</a> |
     <a href="/auth/login">Se connecter</a>
 
 
