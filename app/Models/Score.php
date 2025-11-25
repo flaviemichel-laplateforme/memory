@@ -45,4 +45,39 @@ class Score
 
         return Database::query($sql)->fetchAll(); //Appel à la statique
     }
+
+    /**
+     * Récupère l'historique complet des parties d'un joueur
+     * Trié de la plus récente à la plus ancienne
+     */
+    public function getUserHistory($idUtilisateur)
+    {
+        $pdo = Database::getPdo();
+
+        $sql = "SELECT * FROM scores
+                WHERE id_utilisateur = ?
+                ORDER BY date_creation DESC";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$idUtilisateur]);
+
+        return $stmt->fetchAll();
+    }
+
+    /**
+     * Récupère le meilleur temps personnel du joueur
+     */
+    public function getUserBest($idUtilisateur)
+    {
+        $pdo = Database::getPdo();
+
+        $sql = "SELECT MIN(temps) as meilleur_temps
+                FROM scores
+                WHERE id_utilisateur = ?";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$idUtilisateur]);
+
+        return $stmt->fetch();
+    }
 }

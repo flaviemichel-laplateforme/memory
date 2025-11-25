@@ -31,8 +31,8 @@
     <a href="/game/plateau">Game Plateau</a> |
     <a href="/game/classement">Classement</a> |
     <a href="/auth/register">S'inscrire</a> |
-    <a href="/auth/login">Se connecter</a>
-
+    <a href="/auth/login">Se connecter</a> |
+    <a href="/auth/profile">Mon profil</a>
 
   </nav>
 

@@ -69,7 +69,7 @@ class User
         } else {
 
             $sql = "UPDATE utilisateurs
-                    SET login = ?, email = ?, nom = ?, prenom = ?, 
+                    SET login = ?, email = ?, nom = ?, prenom = ? 
                     WHERE id = ?";
 
             $stmt = $pdo->prepare($sql);
