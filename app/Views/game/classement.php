@@ -23,9 +23,8 @@
                             <?php
                             $rang = $index + 1;
                             if ($rang === 1) echo 'Vous avez gagné!!';
-                            elseif ($rang === 2) echo 'Vous avez fini dexième!';
-                            elseif ($rang === 2) echo 'Vous avez fini deuxième!';
-                            elseif ($rang === 3) echo 'Vous avez fini troisième!';
+                            elseif ($rang === 2) echo 'Vous avez fini deuxième !';
+                            elseif ($rang === 3) echo 'Vous avez fini troisième !';
                             else echo $rang;
                             ?>
                         </td>

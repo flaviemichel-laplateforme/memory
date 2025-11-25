@@ -12,7 +12,7 @@
     <div class="#">
         <a href="/game" class="#">Rejouer</a>
 
-        <a href="/classement" class="#">Voir le classement</a>
+        <a href="/game/classement" class="#">Voir le classement</a>
     </div>
 
 </div>
