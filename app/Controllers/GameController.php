@@ -67,6 +67,9 @@ class GameController extends BaseController
 
         $deck[$index]->setEstRetournee(true);
 
+        header("Refresh: 1; url=/game/plateau");
+        $this->render('game/plateau', ['jeu' => $deck]);
+
         $cartesRetournees = [];
         foreach ($deck as $carte) {
             if ($carte->getEstRetournee() && !$carte->getEstTrouvee()) {
