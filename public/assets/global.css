@@ -1390,16 +1390,26 @@ footer p {
 }
 
 .galerie-title {
-    font-size: 3rem;
-    color: #8B4513;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(255, 215, 0, 0.3);
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #5D2E0F;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0px rgba(255, 215, 0, 0.6),
+        4px 4px 8px rgba(0, 0, 0, 0.3);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 0;
 }
 
 .galerie-subtitle {
-    font-size: 1.4rem;
-    color: #654321;
-    margin-bottom: 30px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #3D1F0A;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 0px rgba(255, 215, 0, 0.4),
+        2px 2px 4px rgba(0, 0, 0, 0.2);
+    font-style: italic;
+    letter-spacing: 1px;
 }
 
 .cards-gallery-landscape {
