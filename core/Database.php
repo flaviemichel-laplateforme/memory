@@ -50,4 +50,13 @@ class Database
         // Retourne toujours la même instance PDO
         return self::$pdo;
     }
+
+
+    public static function query($sql, $params = [])
+    {
+        $pdo = self::getPdo(); // Récupère l'instance PDO statique
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute($params);
+        return $stmt;
+    }
 }

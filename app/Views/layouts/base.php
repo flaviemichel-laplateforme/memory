@@ -14,7 +14,7 @@
   <meta charset="utf-8">
 
   <!-- Titre de la page (sécurisé avec htmlspecialchars, valeur par défaut si non défini) -->
-  <title><?= isset($title) ? htmlspecialchars($title, ENT_QUOTES, 'UTF-8') : 'Mini MVC' ?></title>
+  <title><?= isset($title) ? htmlspecialchars($title, ENT_QUOTES, 'UTF-8') : 'Memory' ?></title>
 
   <!-- Bonne pratique : rendre le site responsive -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,9 +26,21 @@
 <body>
   <!-- Menu de navigation global -->
   <nav>
-    <a href="/">Accueil</a> |
-    <a href="/articles">Articles</a> |
-    <a href="/about">À propos</a>
+
+    <a href="/">Accueil</a>
+    |
+    <!-- <a href="/game/plateau">Game Plateau</a> | -->
+    <?php if (isset($_SESSION['user'])): ?>
+
+      <a href="/game">Jouer</a> |
+      <a href="/game/classement">Classement</a>|
+      <a href="/auth/profile"> Mon profil</a>|
+      <a href="/auth/logout"> Déconnexion</a>
+      <span>👤 Bienvenue, <?= esc($_SESSION['user']['login']) ?>
+      <?php else: ?>
+        <a href="/auth/register">S'inscrire</a>|
+        <a href="/auth/login">Se connecter</a>
+      <?php endif; ?>
 
   </nav>
 
