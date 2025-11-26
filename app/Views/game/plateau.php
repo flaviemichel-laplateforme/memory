@@ -5,6 +5,20 @@ $debut = $_SESSION['debut_partie'] ?? $maintenant;
 $tempsEcoule = $maintenant - $debut;
 
 $chronoAffiche = gmdate("i:s", $tempsEcoule);
+
+// Récupérer l'image de dos selon le thème
+$dosImage = '/assets/images/dos.jpg'; // Par défaut
+if (isset($_SESSION['theme_config']) && isset($_SESSION['theme_config']['card_back'])) {
+    $dosImage = $_SESSION['theme_config']['card_back'];
+}
+
+// Si le fichier n'existe pas, utiliser le dos du dossier du thème
+if (isset($_SESSION['theme']) && isset($_SESSION['theme_config'])) {
+    $themeDos = '/assets/images/themes/' . $_SESSION['theme_config']['folder'] . '/dos.jpg';
+    if (file_exists(__DIR__ . '/../../../public' . $themeDos)) {
+        $dosImage = $themeDos;
+    }
+}
 ?>
 
 <div class="game-container">
@@ -35,7 +49,7 @@ $chronoAffiche = gmdate("i:s", $tempsEcoule);
 
                 <?php else: ?>
                     <a href="/game/play?i=<?= $i ?>" style="display:block; width:100%; height:100%; text-decoration:none;">
-                        <img src="/assets/images/cards/dos.jpg" alt="Dos de carte" class="carte-img">
+                        <img src="<?= $dosImage ?>" alt="Dos de carte" class="carte-img">
                     </a>
                 <?php endif; ?>
 

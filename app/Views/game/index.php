@@ -1,10 +1,21 @@
 <div class="game-menu">
-    <h1>🦁 Memory Savane</h1>
-    <p class="game-subtitle">Trouvez les paires d'animaux de la savane !</p>
+    <h1>🎴 Memory - Jeu de Cartes</h1>
+    <p class="game-subtitle">Choisissez votre thème et trouvez toutes les paires !</p>
 
     <form action="/game" method="POST" class="game-form">
 
         <input type="hidden" name="csrf_token" value="<?= csrf_token() ?>">
+
+        <div class="form-group">
+            <label for="theme">Thème :</label>
+            <select name="theme" id="theme" class="theme-selector">
+                <?php foreach ($themes as $key => $themeData): ?>
+                    <option value="<?= $key ?>" <?= $key === 'savane' ? 'selected' : '' ?>>
+                        <?= $themeData['emoji'] ?> <?= esc($themeData['name']) ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
 
         <div class="form-group">
             <label for="nb_paires">Niveau de difficulté :</label>

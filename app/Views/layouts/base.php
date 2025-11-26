@@ -20,6 +20,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/assets/global.css">
 
+  <?php if (isset($_SESSION['theme_config'])): ?>
+    <style>
+      :root {
+        --color-primary: <?= $_SESSION['theme_config']['colors']['primary'] ?>;
+        --color-secondary: <?= $_SESSION['theme_config']['colors']['secondary'] ?>;
+        --color-accent: <?= $_SESSION['theme_config']['colors']['accent'] ?>;
+        --color-light: <?= $_SESSION['theme_config']['colors']['light'] ?>;
+        --gradient-start: <?= $_SESSION['theme_config']['colors']['gradient_start'] ?>;
+        --gradient-end: <?= $_SESSION['theme_config']['colors']['gradient_end'] ?>;
+      }
+
+      body {
+        background-image: url('<?= $_SESSION['theme_config']['background'] ?>');
+      }
+    </style>
+  <?php endif; ?>
 
 </head>
 

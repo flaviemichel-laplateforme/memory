@@ -14,21 +14,60 @@ class GameController extends BaseController
         if (is_post()) {
 
             $nbPaires = intval(post('nombre_paires'));
+            $theme = post('theme') ?? 'savane';
+
+            // Charger la configuration des thèmes
+            $themes = require __DIR__ . '/../config/themes.php';
+
+            // Vérifier que le thème existe
+            if (!isset($themes[$theme])) {
+                $theme = 'savane';
+            }
+
+            $themeConfig = $themes[$theme];
+            $themePath = "/assets/images/themes/" . $themeConfig['folder'];
+
+            // Scanner les images du thème
+            $cardsDir = __DIR__ . '/../../public/assets/images/themes/' . $themeConfig['folder'];
+            $availableCards = [];
+
+            if (is_dir($cardsDir)) {
+                $files = scandir($cardsDir);
+                foreach ($files as $file) {
+                    if ($file !== '.' && $file !== '..' && preg_match('/\.(jpg|jpeg|png|gif|webp)$/i', $file)) {
+                        $availableCards[] = $themePath . '/' . $file;
+                    }
+                }
+            }
+
+            // Si pas assez de cartes, utiliser l'ancien système
+            if (count($availableCards) < $nbPaires) {
+                $availableCards = [];
+                for ($c = 1; $c <= $nbPaires; $c++) {
+                    $availableCards[] = "/assets/images/cards/" . $c . ".jpg";
+                }
+            }
+
+            // Mélanger et prendre seulement le nombre de paires demandé
+            shuffle($availableCards);
+            $selectedCards = array_slice($availableCards, 0, $nbPaires);
+
             $deck = [];
+            $cardId = 1;
 
-            // ✅ Créer les paires
-            for ($c = 1; $c <= $nbPaires; $c++) {
-                $image = "/assets/images/cards/" . $c . ".jpg";
-
-                $carte1 = new Card($c, $image);
-                $carte2 = new Card($c, $image);
-
+            // Créer les paires
+            foreach ($selectedCards as $imagePath) {
+                $carte1 = new Card($cardId, $imagePath);
+                $carte2 = new Card($cardId, $imagePath);
                 $deck[] = $carte1;
                 $deck[] = $carte2;
+                $cardId++;
             }
 
             shuffle($deck);
             $_SESSION['jeu'] = $deck;
+            $_SESSION['theme'] = $theme;
+            $_SESSION['theme_config'] = $themeConfig;
 
             // --- 🆕 AJOUTS POUR LE SCORE ---
             // On lance le chrono (heure actuelle en secondes)
@@ -41,7 +80,9 @@ class GameController extends BaseController
             exit();
         }
 
-        $this->render('game/index');
+        // Charger les thèmes pour l'affichage
+        $themes = require __DIR__ . '/../config/themes.php';
+        $this->render('game/index', ['themes' => $themes]);
     }
 
     public function plateau()
@@ -116,14 +157,13 @@ class GameController extends BaseController
                 $carteB->setEstRetournee(false);
                 $_SESSION['jeu'] = $deck;
 
-                header("Refresh: 1; url=/game/plateau");
+                header("Refresh: 2; url=/game/plateau");
                 $this->render('game/plateau', ['jeu' => $deck]);
                 exit();
             }
         }
 
-        // Une seule carte retournée, on affiche
-        header("Refresh: 1; url=/game/plateau");
+        // Une seule carte retournée, on affiche sans refresh (la carte reste visible)
         $this->render('game/plateau', ['jeu' => $deck]);
         exit();
     }
