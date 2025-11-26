@@ -9,7 +9,7 @@ body {
 
 nav {
     background: rgba(139, 90, 43, 0.9);
-    padding: 10px 20px;
+    padding: 15px 40px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: space-between;
@@ -1261,5 +1261,263 @@ tbody tr:nth-child(even) {
     .btn-royal {
         padding: 12px 25px;
         font-size: 1.1rem;
+    }
+}
+
+/* ===================================== */
+/* FOOTER - STYLE SAVANE */
+/* ===================================== */
+
+footer {
+    background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
+    border-radius: 15px 15px 0 0;
+    box-shadow: 0 -3px 10px rgba(101, 67, 33, 0.3);
+}
+
+/* Navigation du footer */
+.footer-nav {
+    padding: 1.5rem 3rem 0;
+    border-bottom: 1px solid rgba(255, 248, 220, 0.2);
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0;
+    padding: 0 0 1.5rem 0;
+    flex-wrap: wrap;
+}
+
+.footer-links li {
+    margin: 0;
+}
+
+.footer-links a {
+    color: #FFF8DC;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    display: block;
+    font-weight: 500;
+}
+
+.footer-links a:hover {
+    background: rgba(218, 165, 32, 0.3);
+    color: #FFD700;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+footer p {
+    margin: 0;
+    color: #FFF8DC;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.github-link {
+    position: absolute;
+    right: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #FFF8DC;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: rgba(218, 165, 32, 0.2);
+}
+
+.github-link:hover {
+    background: rgba(218, 165, 32, 0.4);
+    transform: translateY(-2px);
+    color: #FFD700;
+}
+
+.github-link svg {
+    width: 24px;
+    height: 24px;
+}
+
+.github-link span {
+    font-weight: 500;
+}
+
+/* Footer responsive */
+@media (max-width: 768px) {
+    .footer-nav {
+        padding: 1rem 1.5rem 0;
+    }
+
+    .footer-links {
+        gap: 1rem;
+        font-size: 0.85rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 1.5rem;
+    }
+
+    .github-link {
+        position: static;
+    }
+}
+
+/* ===================================== */
+/* PAGE GALERIE - CARTES EN PAYSAGE */
+/* ===================================== */
+
+.galerie-container {
+    width: 100%;
+    margin: 0;
+    padding: 30px 40px;
+    text-align: center;
+}
+
+.galerie-title {
+    font-size: 3rem;
+    color: #8B4513;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(255, 215, 0, 0.3);
+}
+
+.galerie-subtitle {
+    font-size: 1.4rem;
+    color: #654321;
+    margin-bottom: 30px;
+}
+
+.cards-gallery-landscape {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin: 30px 0;
+    padding: 0 20px;
+}
+
+.gallery-card-landscape {
+    perspective: 2000px;
+    cursor: pointer;
+}
+
+.gallery-card-inner-landscape {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.gallery-card-landscape:hover .gallery-card-inner-landscape {
+    transform: rotateY(180deg);
+}
+
+.gallery-card-front-landscape,
+.gallery-card-back-landscape {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.gallery-card-front-landscape {
+    background: white;
+}
+
+.gallery-card-back-landscape {
+    transform: rotateY(180deg);
+    background-image: url('/assets/images/dos.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.gallery-img-landscape {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 20px;
+    border: 6px solid #8B4513;
+    box-shadow: 0 10px 30px rgba(101, 67, 33, 0.5);
+    background: white;
+}
+
+.card-name-landscape {
+    margin-top: 18px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #8B4513;
+    text-transform: capitalize;
+    text-shadow: 1px 1px 3px rgba(255, 215, 0, 0.3);
+}
+
+/* Responsive - 2 cartes par ligne sur tablette */
+@media (max-width: 1200px) {
+    .cards-gallery-landscape {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+/* Responsive - 1 carte par ligne sur petits écrans */
+@media (max-width: 768px) {
+    .cards-gallery-landscape {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+}
+
+.no-cards {
+    grid-column: 1 / -1;
+    background: rgba(244, 228, 193, 0.5);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(139, 69, 19, 0.3);
+    border-radius: 15px;
+    padding: 40px;
+}
+
+.no-cards p {
+    font-size: 1.2rem;
+    color: #654321;
+    margin: 10px 0;
+}
+
+.no-cards code {
+    background: rgba(139, 69, 19, 0.2);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #8B4513;
+}
+
+.galerie-actions {
+    margin-top: 50px;
+}
+
+/* Responsive Galerie */
+@media (max-width: 768px) {
+    .cards-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+    }
+
+    .galerie-title {
+        font-size: 2.5rem;
     }
 }

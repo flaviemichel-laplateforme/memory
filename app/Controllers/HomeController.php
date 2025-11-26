@@ -35,4 +35,11 @@ class HomeController extends BaseController
             'title' => "À propos de nous !!"
         ]);
     }
+
+    public function galerie(): void
+    {
+        $this->render('home/galerie', [
+            'title' => "Galerie des Cartes - Memory Savane"
+        ]);
+    }
 }
