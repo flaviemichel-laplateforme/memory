@@ -1,8 +1,8 @@
-<div class="#">
-    <h1>Memory</h1>
-    <p class="#">Prêt à tester votre mémoire ?</p>
+<div class="game-menu">
+    <h1>🦁 Memory Savane</h1>
+    <p class="game-subtitle">Trouvez les paires d'animaux de la savane !</p>
 
-    <form action="/game" method="POST">
+    <form action="/game" method="POST" class="game-form">
 
         <input type="hidden" name="csrf_token" value="<?= csrf_token() ?>">
 
