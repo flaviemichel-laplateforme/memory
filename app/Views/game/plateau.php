@@ -20,7 +20,7 @@ $chronoAffiche = gmdate("i:s", $tempsEcoule);
         </div>
     </div>
 
-    <div id="plateau-jeu">
+    <div id="plateau-jeu" data-cards="<?= count($jeu) ?>">
         <?php
         for ($i = 0; $i < count($jeu); $i++) {
             $carte = $jeu[$i];
