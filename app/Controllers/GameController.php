@@ -67,9 +67,7 @@ class GameController extends BaseController
         $deck = $_SESSION['jeu'];
 
         $deck[$index]->setEstRetournee(true);
-
-        header("Refresh: 1; url=/game/plateau");
-        $this->render('game/plateau', ['jeu' => $deck]);
+        $_SESSION['jeu'] = $deck;
 
         $cartesRetournees = [];
         foreach ($deck as $carte) {
@@ -86,38 +84,47 @@ class GameController extends BaseController
                 // ✅ Paire trouvée
                 $carteA->setEstTrouvee(true);
                 $carteB->setEstTrouvee(true);
+                $carteA->setEstRetournee(false);
+                $carteB->setEstRetournee(false);
+
+                // Sauvegarde immédiate
+                $_SESSION['jeu'] = $deck;
+
+                // Vérification victoire
+                $toutEstTrouve = true;
+                foreach ($deck as $carte) {
+                    if (!$carte->getEstTrouvee()) {
+                        $toutEstTrouve = false;
+                        break;
+                    }
+                }
+
+                if ($toutEstTrouve) {
+                    // Afficher brièvement le plateau avec toutes les paires trouvées
+                    header("Refresh: 2; url=/game/bravo");
+                    $this->render('game/plateau', ['jeu' => $deck]);
+                    exit();
+                }
+
+                // Paire trouvée mais partie pas terminée
+                header("Refresh: 1; url=/game/plateau");
+                $this->render('game/plateau', ['jeu' => $deck]);
+                exit();
             } else {
-                // ✅ CORRECTION : Modifier AVANT render()
-                // 1. On cache les cartes pour la prochaine fois
+                // Paire non trouvée
                 $carteA->setEstRetournee(false);
                 $carteB->setEstRetournee(false);
                 $_SESSION['jeu'] = $deck;
 
-                // 2. On affiche avec refresh (utilisateur voit brièvement les cartes)
                 header("Refresh: 1; url=/game/plateau");
                 $this->render('game/plateau', ['jeu' => $deck]);
                 exit();
             }
         }
 
-        // Sauvegarde
-        $_SESSION['jeu'] = $deck;
-
-        // Vérification victoire
-        $toutEstTrouve = true;
-        foreach ($deck as $carte) {
-            if (!$carte->getEstTrouvee()) {
-                $toutEstTrouve = false;
-                break;
-            }
-        }
-
-        if ($toutEstTrouve) {
-            header("Location: /game/bravo");
-            exit();
-        }
-
-        header("Location: /game/plateau");
+        // Une seule carte retournée, on affiche
+        header("Refresh: 1; url=/game/plateau");
+        $this->render('game/plateau', ['jeu' => $deck]);
         exit();
     }
 
