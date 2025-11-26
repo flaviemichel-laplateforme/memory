@@ -31,6 +31,13 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-image: url('/assets/images/fond.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-blend-mode: overlay;
+    background-color: rgba(135, 206, 235, 0.3);
 }
 
 /* PLATEAU */
