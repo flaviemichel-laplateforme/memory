@@ -26,7 +26,7 @@ return [
         'emoji' => '🐋',
         'folder' => 'ocean',
         'background' => '/assets/images/ocean-bg.jpg',
-        'card_back' => '/assets/images/ocean-dos.jpg',
+        'card_back' => '/assets/images/themes/ocean/dos.jpg',
         'colors' => [
             'primary' => '#006994',      // Bleu océan
             'secondary' => '#003d5c',    // Bleu profond
@@ -41,7 +41,7 @@ return [
         'emoji' => '🌲',
         'folder' => 'foret',
         'background' => '/assets/images/foret-bg.jpg',
-        'card_back' => '/assets/images/foret-dos.jpg',
+        'card_back' => '/assets/images/themes/foret/dos.jpg',
         'colors' => [
             'primary' => '#2d5016',      // Vert forêt
             'secondary' => '#1a3009',    // Vert foncé
@@ -56,7 +56,7 @@ return [
         'emoji' => '🚀',
         'folder' => 'espace',
         'background' => '/assets/images/espace-bg.jpg',
-        'card_back' => '/assets/images/espace-dos.jpg',
+        'card_back' => '/assets/images/themes/espace/dos.jpg',
         'colors' => [
             'primary' => '#1a1a2e',      // Bleu nuit
             'secondary' => '#0f0f1e',    // Noir bleuté
@@ -71,7 +71,7 @@ return [
         'emoji' => '🐪',
         'folder' => 'desert',
         'background' => '/assets/images/desert-bg.jpg',
-        'card_back' => '/assets/images/desert-dos.jpg',
+        'card_back' => '/assets/images/themes/desert/dos.jpg',
         'colors' => [
             'primary' => '#c4722c',      // Orange sable
             'secondary' => '#8b4513',    // Marron terre

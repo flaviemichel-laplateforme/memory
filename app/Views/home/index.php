@@ -1,7 +1,7 @@
 <div class="home-hero">
   <div class="hero-content">
-    <h1 class="hero-title">🦁 Memory Savane 🐘</h1>
-    <p class="hero-subtitle">Testez votre mémoire dans la savane africaine !</p>
+    <h1 class="hero-title">🦁 Memory nature 🐘</h1>
+    <p class="hero-subtitle">Testez votre mémoire dans nos différents thèmes!</p>
 
     <div class="hero-description">
       <p>🎮 <strong>Trouvez les paires d'animaux</strong> cachées dans la savane</p>
@@ -23,8 +23,19 @@
   <div class="hero-features">
     <div class="feature-card">
       <div class="feature-icon">🌍</div>
-      <h3>Thème Savane</h3>
-      <p>Plongez dans l'univers de la savane africaine avec des graphismes immersifs</p>
+      <h3>Thèmes</h3>
+      <p>Plongez dans différents décors</p>
+      <form method="post" action="/home/theme" class="game-form" style="margin-top:15px;">
+        <div class="form-group">
+          <label for="theme">Choisissez un thème :</label>
+          <select name="theme" id="theme">
+            <?php foreach ($themes as $key => $theme): ?>
+              <option value="<?= $key ?>" <?= ($key === $selectedTheme) ? 'selected' : '' ?>><?= $theme['name'] ?></option>
+            <?php endforeach; ?>
+          </select>
+        </div>
+        <button type="submit" class="btn-play" style="width:100%;margin-top:10px;">Valider</button>
+      </form>
     </div>
 
     <div class="feature-card">

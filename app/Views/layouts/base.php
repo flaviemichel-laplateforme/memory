@@ -32,7 +32,10 @@
       }
 
       body {
-        background-image: url('<?= $_SESSION['theme_config']['background'] ?>');
+        background-image: url('<?= $_SESSION['theme_config']['background'] ?>') !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-attachment: fixed !important;
       }
     </style>
   <?php endif; ?>
