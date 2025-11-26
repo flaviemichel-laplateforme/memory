@@ -16,8 +16,9 @@ class GameController extends BaseController
             $nbPaires = intval(post('nombre_paires'));
             $deck = [];
 
+            // ✅ Créer les paires
             for ($c = 1; $c <= $nbPaires; $c++) {
-                $image = "https://picsum.photos/id/" . ($c + 10) . "/100";
+                $image = "/assets/images/cards/" . $c . ".jpg";
 
                 $carte1 = new Card($c, $image);
                 $carte2 = new Card($c, $image);
