@@ -23,7 +23,7 @@
          <input type="text" name="prenom" placeholder="Prénom" style="display:block; width:100%; margin:10px 0; padding:10px;">
          <input type="password" name="password" placeholder="Mot de passe" required style="display:block; width:100%; margin:10px 0; padding:10px;">
 
-         <button type="submit" style="padding:10px 20px; background:#2ecc71; color:white; border:none; cursor:pointer;">S'inscrire</button>
+         <button type="submit">S'inscrire</button>
      </form>
      <p>Déjà un compte ? <a href="/auth/login">Se connecter</a></p>
  </div>

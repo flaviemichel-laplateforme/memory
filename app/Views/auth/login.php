@@ -20,7 +20,7 @@
          <input type="text" name="login" placeholder="Login" required style="display:block; width:100%; margin:10px 0; padding:10px;">
          <input type="password" name="password" placeholder="Mot de passe" required style="display:block; width:100%; margin:10px 0; padding:10px;">
 
-         <button type="submit" style="padding:10px 20px; background:#3498db; color:white; border:none; cursor:pointer;">Se connecter</button>
+         <button type="submit">Se connecter</button>
      </form>
      <p>Pas encore de compte ? <a href="/auth/register">S'inscrire</a></p>
  </div>
