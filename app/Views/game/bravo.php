@@ -1,24 +1,17 @@
 <div class="victory-container">
-    <div class="crown-icon">👑</div>
-
-    <h1 class="victory-title">Victoire Royale !</h1>
-    <p class="victory-subtitle">Félicitations, Noble Joueur !</p>
-
-    <div class="victory-badge">
-        <div class="badge-star">⭐</div>
-        <p class="victory-message">Vous avez triomphé avec brio dans la savane</p>
-    </div>
+    <h1 class="victory-title">Bravo !</h1>
+    <p class="victory-subtitle">Toutes les paires ont été trouvées.</p>
 
     <div class="victory-stats">
         <div class="stat-card">
             <div class="stat-icon">⏱️</div>
-            <div class="stat-label">Temps Royal</div>
+            <div class="stat-label">Temps</div>
             <div class="stat-value"><?= $temps ?></div>
         </div>
 
         <div class="stat-card">
             <div class="stat-icon">🎯</div>
-            <div class="stat-label">Niveau</div>
+            <div class="stat-label">Nombre de paires</div>
             <div class="stat-value"><?= $paires ?> paires</div>
         </div>
     </div>

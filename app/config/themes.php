@@ -6,6 +6,66 @@
  */
 
 return [
+    'jungle' => [
+        'name' => 'Jungle Tropicale',
+        'emoji' => '🦜',
+        'folder' => 'jungle',
+        'background' => '/assets/images/jungle-bg.jpg',
+        'card_back' => '/assets/images/themes/jungle/dos.jpg',
+        'colors' => [
+            'primary' => '#228B22',
+            'secondary' => '#145214',
+            'accent' => '#FFD700',
+            'light' => '#e6ffe6',
+            'gradient_start' => '#FFD700',
+            'gradient_end' => '#228B22'
+        ]
+    ],
+    'montagne' => [
+        'name' => 'Montagne Glacée',
+        'emoji' => '🏔️',
+        'folder' => 'montagne',
+        'background' => '/assets/images/montagne-bg.jpg',
+        'card_back' => '/assets/images/themes/montagne/dos.jpg',
+        'colors' => [
+            'primary' => '#5D8AA8',
+            'secondary' => '#274472',
+            'accent' => '#A9D6E5',
+            'light' => '#f0f8ff',
+            'gradient_start' => '#A9D6E5',
+            'gradient_end' => '#274472'
+        ]
+    ],
+    'animaux' => [
+        'name' => 'Animaux Rigolos',
+        'emoji' => '🦊',
+        'folder' => 'animaux',
+        'background' => '/assets/images/animaux-bg.jpg',
+        'card_back' => '/assets/images/themes/animaux/dos.jpg',
+        'colors' => [
+            'primary' => '#ff9800',
+            'secondary' => '#ffb74d',
+            'accent' => '#4caf50',
+            'light' => '#fffde7',
+            'gradient_start' => '#ffb74d',
+            'gradient_end' => '#ff9800'
+        ]
+    ],
+    'polaire' => [
+        'name' => 'Pôle Nord',
+        'emoji' => '🐧',
+        'folder' => 'polaire',
+        'background' => '/assets/images/polaire-bg.jpg',
+        'card_back' => '/assets/images/themes/polaire/dos.jpg',
+        'colors' => [
+            'primary' => '#B0E0E6',
+            'secondary' => '#4682B4',
+            'accent' => '#fff',
+            'light' => '#e0f7fa',
+            'gradient_start' => '#B0E0E6',
+            'gradient_end' => '#4682B4'
+        ]
+    ],
     'savane' => [
         'name' => 'Savane Africaine',
         'emoji' => '🦁',

@@ -24,7 +24,9 @@ if (isset($_SESSION['theme']) && isset($_SESSION['theme_config'])) {
 <div class="game-container">
 
     <div class="info-bar">
-        <a href="/game" class="btn-abandon"> Abandonner</a>
+        <form method="post" action="/game/abandon" style="display:inline;">
+            <button type="submit" class="btn-abandon" style="background:none;border:none;padding:0;color:inherit;cursor:pointer;">Abandonner</button>
+        </form>
 
         <div class="timer-box">
             <span> Temps :</span>

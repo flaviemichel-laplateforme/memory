@@ -9,6 +9,17 @@ use App\Models\Score;
 
 class GameController extends BaseController
 {
+    public function abandon()
+    {
+        // Réinitialise la partie
+        unset($_SESSION['jeu']);
+        unset($_SESSION['debut_partie']);
+        unset($_SESSION['nb_paires']);
+        unset($_SESSION['theme']);
+        unset($_SESSION['theme_config']);
+        header("Location: /game");
+        exit();
+    }
     public function index()
     {
         if (is_post()) {
@@ -87,12 +98,35 @@ class GameController extends BaseController
 
     public function plateau()
     {
+        // Permet de changer le thème via GET
+        $theme = get('theme');
+        if ($theme) {
+            $themes = require __DIR__ . '/../config/themes.php';
+            if (isset($themes[$theme])) {
+                $_SESSION['theme'] = $theme;
+                $_SESSION['theme_config'] = $themes[$theme];
+            }
+        }
+
         if (!isset($_SESSION['jeu'])) {
             header("Location: /game");
             exit();
         }
 
         $deck = $_SESSION['jeu'];
+
+        // Vérifier si toutes les cartes sont trouvées
+        $toutEstTrouve = true;
+        foreach ($deck as $carte) {
+            if (!$carte->getEstTrouvee()) {
+                $toutEstTrouve = false;
+                break;
+            }
+        }
+        if ($toutEstTrouve) {
+            header("Location: /game/bravo");
+            exit();
+        }
 
         $this->render('game/plateau', ['jeu' => $deck]);
     }
