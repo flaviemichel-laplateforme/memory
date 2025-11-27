@@ -26,7 +26,7 @@ return [
         'emoji' => '🏔️',
         'folder' => 'montagne',
         'background' => '/assets/images/montagne-bg.jpg',
-        'card_back' => '/assets/images/themes/montagne/dos.jpg',
+        'card_back' => '/assets/images/themes/montagne/dos.avif',
         'colors' => [
             'primary' => '#5D8AA8',
             'secondary' => '#274472',
@@ -85,7 +85,7 @@ return [
         'name' => 'Océan Mystérieux',
         'emoji' => '🐋',
         'folder' => 'ocean',
-        'background' => '/assets/images/ocean-bg.jpg',
+        'background' => '/assets/images/ocean-bg.jpeg',
         'card_back' => '/assets/images/themes/ocean/dos.jpg',
         'colors' => [
             'primary' => '#006994',      // Bleu océan
@@ -100,7 +100,7 @@ return [
         'name' => 'Forêt Enchantée',
         'emoji' => '🌲',
         'folder' => 'foret',
-        'background' => '/assets/images/foret-bg.jpg',
+        'background' => '/assets/images/foret-bg.jpeg',
         'card_back' => '/assets/images/themes/foret/dos.jpg',
         'colors' => [
             'primary' => '#2d5016',      // Vert forêt
