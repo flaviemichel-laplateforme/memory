@@ -53,6 +53,19 @@ class GameController extends BaseController
 
         $deck = $_SESSION['jeu'];
 
+        // Vérification victoire (redirection si toutes les cartes sont trouvées)
+        $toutEstTrouve = true;
+        foreach ($deck as $carte) {
+            if (!$carte->getEstTrouvee()) {
+                $toutEstTrouve = false;
+                break;
+            }
+        }
+        if ($toutEstTrouve) {
+            header("Location: /game/bravo");
+            exit();
+        }
+
         $this->render('game/plateau', ['jeu' => $deck]);
     }
 
