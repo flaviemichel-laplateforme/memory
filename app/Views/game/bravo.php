@@ -1,8 +1,8 @@
 <div class="victory-container">
     <div class="crown-icon">👑</div>
 
-    <h1 class="victory-title">Victoire Royale !</h1>
-    <p class="victory-subtitle">Félicitations, Noble Joueur !</p>
+    <h1 class="victory-title">Victoire !</h1>
+    <p class="victory-subtitle">Félicitations, <?= e($_SESSION['user']['login'] ?? 'Noble Joueur') ?> !</p>
 
     <div class="victory-badge">
         <div class="badge-star">⭐</div>
@@ -12,7 +12,7 @@
     <div class="victory-stats">
         <div class="stat-card">
             <div class="stat-icon">⏱️</div>
-            <div class="stat-label">Temps Royal</div>
+            <div class="stat-label">Temps</div>
             <div class="stat-value"><?= $temps ?></div>
         </div>
 
